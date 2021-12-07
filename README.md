@@ -27,10 +27,10 @@ TODO list with auth in node.js and React with use Redux.
  `auth.logOut()`
 
 * Task Service
- task.allTasks()
- task.addTask()
- task.deleteTask(id)
- task.updateTask(id)
+ `task.allTasks()`
+ `task.addTask()`
+ `task.deleteTask(id)`
+ `task.updateTask(id)`
 
 
 
