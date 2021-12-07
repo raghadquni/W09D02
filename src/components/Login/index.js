@@ -8,21 +8,20 @@ import { login } from "../../reducers/login.js";
 const BASE_URL = "http://localhost:4000";
 
 const Login = () => {
-    const state = useSelector((state) => {
-        return {
-          signIn: state.signIn,
-        };
-      });
-      const dispatch = useDispatch();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const state = useSelector((state) => {
+    return state
+  });
+  const dispatch = useDispatch();
+
 //   const [token, setToken] = useState("");
 
-//   useEffect(() => {
-//     const token = localStorage.getItem("token");
-//     setToken(token);
-//   }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    // setToken(token);
+  }, []);
 
   const log = async () => {
       const users = await axios.post(`${BASE_URL}/login`, {
@@ -37,9 +36,9 @@ const Login = () => {
         user: users.data.result,
         token: users.data.token,
     }
-    dispatch(login({ data }));
+    dispatch(login(data));
 
-  };
+  }
 
   return (
     <>

@@ -1,29 +1,40 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../reducers/login";
 
 
 const BASE_URL = "http://localhost:4000";
 
 const Tasks = ({}) => {
-    const state = useSelector((state) => {
-        return {
-          signIn: state.signIn,
-        };
-      });
-    
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState("");
   const [update, setUpdate] = useState("");
-  const [token, setToken] = useState(state.signIn.token);
+
+  const state = useSelector((state) => {
+    return {
+      signIn: state.signIn,
+      task: state.Task,
+      
+    };
+  });
+
+  const dispatch = useDispatch()
 
 
   useEffect(() => {
     allTasks();
   }, []);
 
+useEffect(() => {
+    const token = localStorage.getItem("token");
+    // setLocal(token);
+    allTasks();
+  }, []);
+
   const logOut = () => {
     localStorage.clear();
+    dispatch(logout({ user: null , token: "" }))
     // window.location.reload(false)
     // clearToken("");
   };
@@ -32,7 +43,7 @@ const Tasks = ({}) => {
     try {
       const todo = await axios.get(`${BASE_URL}/allTask`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${state.signIn.token}`,
         },
       }
       );
@@ -53,14 +64,14 @@ const Tasks = ({}) => {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${state.signIn.token}`,
           },
         }
       );
     } catch (error) {
       console.log(error);
     }
-    allTasks(token);
+    allTasks(state.signIn.token);
   };
 
 
@@ -69,10 +80,10 @@ const Tasks = ({}) => {
       await axios.delete(
         `${BASE_URL}/deleteTask/${id}`, {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${state.signIn.token}`,
           },
     })
-    allTasks(token);
+    allTasks(state.signIn.token);
   } catch (error) {
     console.log(error);
   }
@@ -88,11 +99,11 @@ const Tasks = ({}) => {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${state.signIn.token}`,
           },
         }
       );
-      allTasks(token);
+      allTasks(state.signIn.token);
     } catch (error) {
       console.log(error);
     }
