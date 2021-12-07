@@ -22,7 +22,7 @@ TODO list with auth in node.js and React with use Redux.
 
 ## Services
 * Auth Service
- auth.login()
+ // auth.login()
  auth.register()
  auth.logOut()
 
