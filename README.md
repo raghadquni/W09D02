@@ -13,12 +13,12 @@ TODO list with auth in node.js and React with use Redux.
 * Delete my task As a user
 
 ## React Router Routes (React App)
-| Path               | Component     | Permissions            |
-|--------------------|---------------|------------------------|
-| `/`                | HomePage      | anon only              |
-| `/Register`        | RegisterPage  | anon only              |
-| `/Login`           | LoginPage     | public                 |
-| `/Tasks`           | TasksPage     | users only             |
+| Path               | Component     | Permissions            | Behavior                                                     |
+|--------------------|---------------|------------------------|--------------------------------------------------------------|
+| `/`                | HomePage      | anon only              | Signup form, navigate to login after signup                  |
+| `/Register`        | RegisterPage  | anon only              | Signup form, navigate to login after signup                  |
+| `/Login`           | LoginPage     | public                 | Login form, link to signup, navigate to homepage after login |
+| `/Tasks`           | TasksPage     | users only             | Tasks                                                        |
 
 
 
