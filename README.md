@@ -20,5 +20,17 @@ TODO list with auth in node.js and React with use Redux.
 | `/Login`           | LoginPage     | public                 | Login form, link to signup, navigate to homepage after login |
 | `/Tasks`           | TasksPage     | users only             | Tasks                                                        |
 
+## Services
+* Auth Service
+** auth.login()
+** auth.register()
+** auth.logOut()
+
+* Task Service
+** task.allTasks()
+** task.addTask()
+** task.deleteTask(id)
+** task.updateTask(id)
+
 
 
