@@ -13,5 +13,9 @@ TODO list with auth in node.js and React with use Redux.
 * Delete my task As a user
 
 ## React Router Routes (React App)
+| Path               | Component    | Permissions            | keepUpperCase is true |  
+|--------------------|--------------|------------------------|-----------------------|  
+| `................` | pascalCase   | `XmlHttpRequest`       | `XMLHTTPRequest`      |  
+| `................` | camelCase    | `newCustomerId`        | `newCustomerID`       |  
 
 
