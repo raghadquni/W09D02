@@ -22,15 +22,15 @@ TODO list with auth in node.js and React with use Redux.
 
 ## Services
 * Auth Service
-** auth.login()
-** auth.register()
-** auth.logOut()
+ auth.login()
+ auth.register()
+ auth.logOut()
 
 * Task Service
-** task.allTasks()
-** task.addTask()
-** task.deleteTask(id)
-** task.updateTask(id)
+ task.allTasks()
+ task.addTask()
+ task.deleteTask(id)
+ task.updateTask(id)
 
 
 
